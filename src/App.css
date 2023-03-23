@@ -1,38 +1,192 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(2px);
+}
+
+body {
+  padding: 0px;
+  margin: 0px;
+  user-select: none;
+}
+
 .App {
+  width: 90%;
+  margin: 0px auto;
+  padding: 10px 0px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  overflow: hidden;
+}
+
+
+.flip-card {
+  background-color: transparent;
+  width: 100px;
+  height: 150px;
+  perspective: 1000px;
+  filter: blur(0px);
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+
+}
+
+.flip-card.tog .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  color: black;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+img {
+  width: 100px;
+  height: 150px;
+  border-radius: 6px;
+}
+
+.controls {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.buttonDiv {
+  padding: 10px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  gap: 10px;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+
+.buttonDiv button {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  background-color: green;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.timer {
+  font-size: 80px;
+  border-radius: 5px;
+  width: 200px;
+  margin: 0px auto;
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(2px);
+  vertical-align: middle;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.blur {
+  filter: blur(1px) brightness(75%);
+}
+
+.modal {
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  margin-top: 40px auto;
+  width: 450px;
+  background-color: lightcoral;
+  position: absolute;
+  left: 35%;
+  top: 30%;
+  padding: 10px;
+  border-radius: 4px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.playAgain {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 4px;
+}
+
+h2 {
+  margin: 0px;
+  margin-top: 10px;
+}
+
+.modal-para {
+  margin: 0px;
+}
+
+.initials {
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+}
+
+.scores {
+  margin: 0px auto;
+}
+
+table td, table th {
+  width: 80px;
+  text-align: center;
+  padding: 5px;
+}
+
+table {
+  border: 2px solid;
+  border-radius: 4px;
+  padding: 0px;
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(2px);
+}
+
+h3 {
+  text-align: center;
+}
+
+table tr {
+  background-color: lightgrey;
+}
+
+thead th {
+  background-color: black;
+  color: white;
+}
+
+tr :first-child{
+  width: 10px;
 }
